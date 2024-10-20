@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     const squares = document.querySelectorAll('#board div');
     const status = document.querySelector('#status');
+    const newgame = document.querySelector('.btn');
+
 
     let state=[];
     let current = 'X'; 
@@ -26,6 +28,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
         });
 
+        newgame.addEventListener("click", function(){
+            state.fill(null); 
+            current = 'X'; 
+            squares.forEach(square => {
+                square.textContent = ''; 
+                square.classList.remove('X', 'O'); 
+            });
+            status.textContent = 'Move your mouse over a square and click to play an X or an O.';
+            status.classList.remove('you-won'); 
+        });
+
         square.addEventListener("mouseover", function() {
             square.classList.add('hover');
         });
@@ -45,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
           [1, 4, 7], 
           [2, 5, 8], 
           [0, 4, 8], 
-          [2, 4, 6], 
+          [2, 4, 6]
         ];
     
         for (const x of c) {
