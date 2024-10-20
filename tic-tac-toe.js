@@ -11,6 +11,13 @@ document.addEventListener('DOMContentLoaded', function() {
             square.classList.add(current);
             current = current === 'X' ? 'O' : 'X'; 
         });
+        square.addEventListener("mouseover", function() {
+            square.classList.add('hover');
+        });
+
+        square.addEventListener("mouseleave", function() {
+            square.classList.remove('hover');
+        });
     });
     
 });
